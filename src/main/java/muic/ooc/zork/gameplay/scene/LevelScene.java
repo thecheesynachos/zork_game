@@ -37,7 +37,7 @@ public class LevelScene extends Scene {
 			Observation ob = new Observation.Builder()
 					.addString("Level has been completed!")
 					.addString("The password for this checkpoint is: " + currentLevel.getCheatCode())
-					.build();
+					.setColour(Observation.ANSI_GREEN).build();
 			gameBag.notifyObserver(ob);
 			if (LevelIterator.hasNextLevel()){
 				gameBag.getPlayer().incrementMaxHealth(5);

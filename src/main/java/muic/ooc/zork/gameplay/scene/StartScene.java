@@ -3,6 +3,7 @@ package muic.ooc.zork.gameplay.scene;
 import muic.ooc.zork.command.misc.MiscCommandFactory;
 import muic.ooc.zork.gameplay.GameBag;
 import muic.ooc.zork.gameplay.Observation;
+import muic.ooc.zork.gameplay.Observer;
 
 public class StartScene extends Scene {
 
@@ -18,7 +19,7 @@ public class StartScene extends Scene {
 
 	public void playScene(GameBag gameBag) {
 
-		gameBag.notifyObserver(new Observation(asciiIntro));
+		gameBag.notifyObserver(new Observation(asciiIntro, Observation.ANSI_YELLOW));
 		gameBag.notifyObserver(new Observation("Welcome to the game. You ready?"));
 		gameBag.setNextScene(null);
 

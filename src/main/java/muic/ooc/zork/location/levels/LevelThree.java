@@ -26,7 +26,7 @@ public class LevelThree extends Level {
 	}
 
 	public Observation getCompletedEndMessage() {
-		return new Observation("");
+		return new Observation("You have found the escape. You get out!");
 	}
 
 	protected void setLevel() {

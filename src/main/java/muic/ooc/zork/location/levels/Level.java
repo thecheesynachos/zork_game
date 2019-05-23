@@ -52,7 +52,7 @@ public abstract class Level {
 		if(player.getyCoord() > 0 && levelSetup[player.getxCoord()][player.getyCoord()-1].canWalkThrough()){
 			player.walkUp();
 			roomVisited[player.getxCoord()][player.getyCoord()] = true;
-			return new Observation("Walking up.")
+			return new Observation("Walking up.", Observation.ANSI_CYAN)
 					.concatObservation(levelSetup[player.getxCoord()][player.getyCoord()].getRoomMessage());
 		} else{
 			return new Observation("Cannot walk up from here.");
@@ -63,7 +63,7 @@ public abstract class Level {
 		if(player.getyCoord() < ySize-1 && levelSetup[player.getxCoord()][player.getyCoord()+1].canWalkThrough()){
 			player.walkDown();
 			roomVisited[player.getxCoord()][player.getyCoord()] = true;
-			return new Observation("Walking down.")
+			return new Observation("Walking down.", Observation.ANSI_CYAN)
 					.concatObservation(levelSetup[player.getxCoord()][player.getyCoord()].getRoomMessage());
 		} else{
 			return new Observation("Cannot walk down from here.");
@@ -74,7 +74,7 @@ public abstract class Level {
 		if(player.getxCoord() > 0 && levelSetup[player.getxCoord()-1][player.getyCoord()].canWalkThrough()){
 			player.walkLeft();
 			roomVisited[player.getxCoord()][player.getyCoord()] = true;
-			return new Observation("Walking left.")
+			return new Observation("Walking left.", Observation.ANSI_CYAN)
 					.concatObservation(levelSetup[player.getxCoord()][player.getyCoord()].getRoomMessage());
 		} else{
 			return new Observation("Cannot walk left from here.");
@@ -85,7 +85,7 @@ public abstract class Level {
 		if(player.getxCoord() < xSize-1 && levelSetup[player.getxCoord()+1][player.getyCoord()].canWalkThrough()){
 			player.walkRight();
 			roomVisited[player.getxCoord()][player.getyCoord()] = true;
-			return new Observation("Walking right.")
+			return new Observation("Walking right.", Observation.ANSI_CYAN)
 					.concatObservation(levelSetup[player.getxCoord()][player.getyCoord()].getRoomMessage());
 		} else{
 			return new Observation("Cannot walk right from here.");

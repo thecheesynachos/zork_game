@@ -21,9 +21,11 @@ public class Fight {
 
 	public void doFight(GameBag gameBag){
 
+		String fightColour = Observation.ANSI_CYAN;
+
 		Observation ob;
 		InputAcceptor inputAcceptor = gameBag.getInputAcceptor();
-		ob = new Observation("You met a monster!");
+		ob = new Observation("You met a monster!", fightColour);
 		gameBag.notifyObserver(ob);
 
 		while(!isDone){

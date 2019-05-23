@@ -8,7 +8,7 @@ public class WinnerScene extends Scene {
 
 	public void playScene(GameBag gameBag) {
 		gameBag.notifyObserver(new Observation("Congratulations! You finished the game! " +
-				"\nEnter anything to return to main menu."));
+				"\nEnter anything to return to main menu.", Observation.ANSI_BLUE));
 		gameBag.getPlayer().reset();
 		LevelIterator.reset();
 		String in = gameBag.getInputAcceptor().receiveInputAsString();

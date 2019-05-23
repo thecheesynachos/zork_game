@@ -15,6 +15,7 @@ public class MiscCommandFactory extends AbstractCommandFactory {
 	private List<Command> commands = new ArrayList<Command>(){{
 		add(new Start());
 		add(new Credits());
+		add(new Music());
 		add(new Exit());
 	}};
 

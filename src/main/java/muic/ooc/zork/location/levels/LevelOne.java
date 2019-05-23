@@ -61,7 +61,7 @@ public class LevelOne extends Level {
 	}
 
 	public Observation getCompletedEndMessage() {
-		return new Observation("You have unlocked the door! Congrats!");
+		return new Observation("You have unlocked the door!");
 	}
 
 	public String getCheatCode() {

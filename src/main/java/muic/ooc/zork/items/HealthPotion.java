@@ -7,7 +7,7 @@ import muic.ooc.zork.gameplay.Observation;
 
 public class HealthPotion extends FightItem {
 
-	private static final int POTION_AMOUNT = 10;
+	private static final int POTION_AMOUNT = 30;
 
 	public Observation use(GameBag gameBag) {
 		Player player = gameBag.getPlayer();
