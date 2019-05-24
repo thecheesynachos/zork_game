@@ -1,4 +1,4 @@
-package muic.ooc.zork.gameplay.scene;
+package muic.ooc.zork.scene;
 
 import muic.ooc.zork.command.Command;
 import muic.ooc.zork.gameplay.GameBag;

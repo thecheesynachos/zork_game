@@ -3,7 +3,7 @@ package muic.ooc.zork.command.misc;
 import muic.ooc.zork.command.Command;
 import muic.ooc.zork.gameplay.GameBag;
 import muic.ooc.zork.gameplay.Observation;
-import muic.ooc.zork.gameplay.scene.LevelScene;
+import muic.ooc.zork.scene.LevelScene;
 
 public class Start implements Command {
 

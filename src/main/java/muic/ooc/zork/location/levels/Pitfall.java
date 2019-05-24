@@ -22,12 +22,7 @@ public class Pitfall extends Level {
 		return new Observation("This does not seem like a good place to be at... Let's find a way out.");
 	}
 
-	public Observation getCompletedEndMessage() {
-		return new Observation("Whew,... that was a close one. Glad we got out there.");
-	}
-
-	protected void setLevel() {
-
+	protected void setRoom() {
 		// level landscape
 		for(int i = 0; i < xSize; i++) {
 			for (int j = 0; j < ySize; j++) {
@@ -35,7 +30,16 @@ public class Pitfall extends Level {
 			}
 		}
 		levelSetup[xSize-2][ySize-1] = new RoomWithLockedDoor();
+	}
 
+	protected void putItems() {
+		// put key in one of the rooms
+		levelSetup[0][ySize-1].putItem(new Key());
+		levelSetup[1][ySize/2].putItem(new ManaPotion());
+		levelSetup[xSize-1][1].putItem(new HealthPotion());
+	}
+
+	protected void putMonsters() {
 		Random rand = new Random();
 		for (int monsterCount = 0; monsterCount < 2; monsterCount++){
 			int x, y;
@@ -45,12 +49,6 @@ public class Pitfall extends Level {
 			} while((levelSetup[x][y] instanceof SimpleRoom) && (x == 0 & y == 0));
 			levelSetup[x][y].putMonster(new AdvancedMonster());
 		}
-
-		// put key in one of the rooms
-		levelSetup[0][ySize-1].putItem(new Key());
-		levelSetup[1][ySize/2].putItem(new ManaPotion());
-		levelSetup[xSize-1][1].putItem(new HealthPotion());
-
 	}
 
 	public Observation getLevelLandscape(){

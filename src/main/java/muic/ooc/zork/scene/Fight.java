@@ -1,9 +1,12 @@
-package muic.ooc.zork.gameplay;
+package muic.ooc.zork.scene;
 
 import muic.ooc.zork.character.Player;
 import muic.ooc.zork.character.monsters.Monster;
 import muic.ooc.zork.command.Command;
 import muic.ooc.zork.command.fight.FightCommandFactory;
+import muic.ooc.zork.gameplay.GameBag;
+import muic.ooc.zork.gameplay.InputAcceptor;
+import muic.ooc.zork.gameplay.Observation;
 
 public class Fight {
 
@@ -71,6 +74,9 @@ public class Fight {
 			gameBag.notifyObserver(ob);
 			player.incrementMaxHealth();
 			player.incrementMaxMana();
+			player.incrementHealth();
+			player.incrementMana();
+			player.incrementMaxAttack();
 		} else{
 			ob = new Observation("Oof owie, you have died. Isn't that sad.");
 			gameBag.notifyObserver(ob);

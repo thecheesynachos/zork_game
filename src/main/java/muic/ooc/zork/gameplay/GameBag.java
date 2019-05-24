@@ -1,10 +1,10 @@
 package muic.ooc.zork.gameplay;
 
 import muic.ooc.zork.character.Player;
-import muic.ooc.zork.character.monsters.Monster;
 import muic.ooc.zork.command.Command;
-import muic.ooc.zork.gameplay.scene.Scene;
-import muic.ooc.zork.gameplay.scene.StartScene;
+import muic.ooc.zork.scene.Fight;
+import muic.ooc.zork.scene.Scene;
+import muic.ooc.zork.scene.StartScene;
 import muic.ooc.zork.location.levels.Level;
 
 import java.util.ArrayList;

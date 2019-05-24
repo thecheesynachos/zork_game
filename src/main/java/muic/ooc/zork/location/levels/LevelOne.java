@@ -20,8 +20,7 @@ public class LevelOne extends Level {
 		super(LEVEL_ONE_SIZE, LEVEL_ONE_SIZE);
 	}
 
-	protected void setLevel(){
-
+	protected void setRoom() {
 		// set up room
 		for(int i = 0; i < xSize; i++) {
 			for (int j = 0; j < ySize; j++) {
@@ -37,12 +36,19 @@ public class LevelOne extends Level {
 
 		// put room with escape door
 		levelSetup[xSize-1][0] = new RoomWithLockedDoor();
+	}
+
+	protected void putItems() {
 
 		// put key in one of the rooms and items in the other
 		levelSetup[xSize-1][ySize-1].putItem(new Key());
 		levelSetup[xSize/2 + 1][ySize/2].putItem(new ManaPotion());
 		levelSetup[xSize-1][1].putItem(new HealthPotion());
 		levelSetup[xSize-2][ySize-2].putItem(new Spinach());
+
+	}
+
+	protected void putMonsters() {
 
 		// put monsters in the rooms
 		Random rand = new Random();
@@ -58,10 +64,6 @@ public class LevelOne extends Level {
 
 	public Observation getInitialRoomMessage() {
 		return new Observation("Welcome to the first level. Find the key, unlock the door to get to the next stage!");
-	}
-
-	public Observation getCompletedEndMessage() {
-		return new Observation("You have unlocked the door!");
 	}
 
 	public String getCheatCode() {

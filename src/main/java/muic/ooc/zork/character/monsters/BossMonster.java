@@ -14,7 +14,7 @@ public class BossMonster extends Monster {
 
 	public BossMonster(){
 		super();
-		this.potionAvailable = 2;
+		this.potionAvailable = 1;
 	}
 
 	public Observation doTurn(Character c) {

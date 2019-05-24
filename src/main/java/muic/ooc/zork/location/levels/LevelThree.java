@@ -25,11 +25,7 @@ public class LevelThree extends Level {
 		return new Observation("This is the last level. Or is it?");
 	}
 
-	public Observation getCompletedEndMessage() {
-		return new Observation("You have found the escape. You get out!");
-	}
-
-	protected void setLevel() {
+	protected void setRoom() {
 
 		// set up room
 		for(int i = 0; i < xSize; i++) {
@@ -45,14 +41,9 @@ public class LevelThree extends Level {
 		// special rooms
 		levelSetup[xSize-1][ySize/2] = new RoomWithLockedDoor();
 
-		// monsters
-		levelSetup[xSize-2][ySize/2].putMonster(new BossMonster());
-		Random rand = new Random();
-		for (int monsterCount = 0; monsterCount < 3; monsterCount++){
-			int x = rand.nextInt(xSize/2-1) + 1;
-			int y = rand.nextInt(ySize-1) + 1;
-			levelSetup[x][y].putMonster(new BasicMonster());
-		}
+	}
+
+	protected void putItems() {
 
 		// items
 		levelSetup[0][1].putItem(new ManaPotion());
@@ -61,6 +52,19 @@ public class LevelThree extends Level {
 		levelSetup[2][4].putItem(new HealthPotion());
 		levelSetup[2][2].putItem(new Spinach());
 		levelSetup[xSize-2][ySize/2].putItem(new Key());
+
+	}
+
+	protected void putMonsters() {
+
+		// monsters
+		levelSetup[xSize-2][ySize/2].putMonster(new BossMonster());
+		Random rand = new Random();
+		for (int monsterCount = 0; monsterCount < 3; monsterCount++){
+			int x = rand.nextInt(xSize/2-1) + 1;
+			int y = rand.nextInt(ySize-1) + 1;
+			levelSetup[x][y].putMonster(new BasicMonster());
+		}
 
 	}
 

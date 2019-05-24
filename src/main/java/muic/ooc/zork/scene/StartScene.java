@@ -1,9 +1,8 @@
-package muic.ooc.zork.gameplay.scene;
+package muic.ooc.zork.scene;
 
 import muic.ooc.zork.command.misc.MiscCommandFactory;
 import muic.ooc.zork.gameplay.GameBag;
 import muic.ooc.zork.gameplay.Observation;
-import muic.ooc.zork.gameplay.Observer;
 
 public class StartScene extends Scene {
 

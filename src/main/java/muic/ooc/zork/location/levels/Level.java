@@ -8,6 +8,8 @@ public abstract class Level {
 
 	protected int xSize;
 	protected int ySize;
+	private static final int X_START = 0;
+	private static final int Y_START = 0;
 	protected Room[][] levelSetup;
 	protected boolean[][] roomVisited;
 	protected Player player;
@@ -20,7 +22,7 @@ public abstract class Level {
 		setLevel();
 		roomVisited = new boolean[xSize][ySize];
 		player = Player.getPlayer();
-		player.place(0, 0);
+		player.place(X_START, Y_START);
 		roomVisited[0][0] = true;
 	}
 
@@ -44,9 +46,17 @@ public abstract class Level {
 
 	public abstract Observation getInitialRoomMessage();
 
-	public abstract Observation getCompletedEndMessage();
+	private void setLevel(){
+		setRoom();
+		putItems();
+		putMonsters();
+	}
 
-	protected abstract void setLevel();
+	protected abstract void setRoom();
+
+	protected abstract void putItems();
+
+	protected abstract void putMonsters();
 
 	public Observation walkUp(){
 		if(player.getyCoord() > 0 && levelSetup[player.getxCoord()][player.getyCoord()-1].canWalkThrough()){
@@ -107,4 +117,9 @@ public abstract class Level {
 	}
 
 	public abstract String getCheatCode();
+
+	public void resetPlayer(){
+		player.place(X_START,Y_START);
+	}
+
 }

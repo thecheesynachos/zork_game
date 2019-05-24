@@ -1,8 +1,7 @@
-package muic.ooc.zork.gameplay.scene;
+package muic.ooc.zork.scene;
 
 import muic.ooc.zork.command.control.ControlCommandFactory;
 import muic.ooc.zork.command.walk.WalkCommandFactory;
-import muic.ooc.zork.gameplay.Fight;
 import muic.ooc.zork.gameplay.GameBag;
 import muic.ooc.zork.gameplay.Observation;
 import muic.ooc.zork.location.levels.*;
@@ -13,6 +12,7 @@ public class LevelScene extends Scene {
 	public void playScene(GameBag gameBag){
 
 		Level currentLevel = LevelIterator.nextLevel();
+		currentLevel.resetPlayer();
 
 		gameBag.setCurrentLevel(currentLevel);
 		gameBag.notifyObserver(currentLevel.getInitialRoomMessage());

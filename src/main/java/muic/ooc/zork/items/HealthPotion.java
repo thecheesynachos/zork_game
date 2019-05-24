@@ -1,7 +1,6 @@
 package muic.ooc.zork.items;
 
 import muic.ooc.zork.character.Player;
-import muic.ooc.zork.gameplay.Fight;
 import muic.ooc.zork.gameplay.GameBag;
 import muic.ooc.zork.gameplay.Observation;
 
