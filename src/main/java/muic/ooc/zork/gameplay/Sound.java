@@ -16,6 +16,7 @@ public class Sound implements Runnable{
     private Clip clip;
     private boolean isPlaying;
     private boolean playToggle;
+    private boolean musicBroken = false;  // this will allow game to play without error even without music files
     private Thread thread;
     private Random random = new Random(1688);
 
@@ -39,14 +40,18 @@ public class Sound implements Runnable{
     }
 
     public Observation toggleSound(){
-        playToggle = !playToggle;
-        if (playToggle) {
-            thread = new Thread(sound);
-            thread.start();
-            return new Observation("Music starts");
-        } else {
-            stopSound();
-            return new Observation("Music stopped");
+        if(!musicBroken) {
+            playToggle = !playToggle;
+            if (playToggle) {
+                thread = new Thread(sound);
+                thread.start();
+                return new Observation("Music starts");
+            } else {
+                stopSound();
+                return new Observation("Music stopped");
+            }
+        } else{
+            return new Observation("Music cannot be played in this session.");
         }
     }
 
@@ -70,7 +75,8 @@ public class Sound implements Runnable{
                 clip.start();
                 isPlaying = true;
             } catch (Exception e) {
-                e.printStackTrace();
+                playToggle = false;
+                musicBroken = true;
             }
         }
 
